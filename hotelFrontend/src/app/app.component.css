@@ -1,8 +1,17 @@
 h1{
   text-align: center;
-  font-size: 5em;
+  font-size: 3em;
+  font-family: 'Muli', serif;
 }
 
-img {
-  margin: 0 auto;
+a{
+  font-size: 1.5em;
+  font-family: 'Muli', serif;
 }
+
+#oct-img{
+  width: 3.5em;
+  margin-right: 10px;
+}
+
+
