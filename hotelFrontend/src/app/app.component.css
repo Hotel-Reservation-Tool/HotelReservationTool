@@ -1,7 +1,17 @@
-h2{
+h1{
   text-align: center;
+  font-size: 3em;
+  font-family: 'Muli', serif;
 }
 
-nav{
-  margin-bottom: 1em;
+a{
+  font-size: 1.5em;
+  font-family: 'Muli', serif;
 }
+
+#oct-img{
+  width: 3.5em;
+  margin-right: 10px;
+}
+
+
