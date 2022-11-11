@@ -1,0 +1,55 @@
+<h1>Choose which room(s) you want to book.</h1>
+<div class="floors">
+  <button class="btn btn-info floor-button" (click)="clickOnFloor1()">Floor 1</button>
+  <button class="btn btn-info floor-button" (click)="clickOnFloor2()">Floor 2</button>
+  <button class="btn btn-info floor-button" (click)="clickOnFloor3()">Floor 3</button>
+</div>
+<div class="hotel" *ngIf="floor === 1">
+  <div class="left">
+    <div class="room-1 room">Room 1</div>
+    <div  class="room-2 room">Room 2</div>
+    <div  class="room-3 room">Room 3</div>
+    <div  class="room-4 room">Room 4</div>
+    <div  class="room-5 room">Room 5</div>
+  </div>
+  <div class="right">
+    <div class="room-6 room">Room 6</div>
+    <div class="room-7 room">Room 7</div>
+    <div class="room-8 room">Room 8</div>
+    <div class="room-9 room">Room 9</div>
+    <div class="room-10 room">Room 10</div>
+  </div>
+</div>
+<div class="hotel" *ngIf="floor === 2">
+  <div class="left">
+    <div class="room-1 room">Room 11</div>
+    <div class="room-2 room">Room 12</div>
+    <div class="room-3 room">Room 13</div>
+    <div class="room-4 room">Room 14</div>
+    <div class="room-5 room">Room 15</div>
+  </div>
+  <div class="right">
+    <div class="room-6 room">Room 16</div>
+    <div class="room-7 room">Room 17</div>
+    <div class="room-8 room">Room 18</div>
+    <div class="room-9 room">Room 19</div>
+    <div class="room-10 room">Room 20</div>
+  </div>
+</div>
+<div class="hotel" *ngIf="floor === 3">
+  <div class="left">
+    <div class="room-1 room">Room 21</div>
+    <div class="room-2 room">Room 22</div>
+    <div class="room-3 room">Room 23</div>
+    <div class="room-4 room">Room 24</div>
+    <div class="room-5 room">Room 25</div>
+  </div>
+  <div class="right">
+    <div class="room-6 room">Room 26</div>
+    <div class="room-7 room">Room 27</div>
+    <div class="room-8 room">Room 28</div>
+    <div class="room-9 room">Room 29</div>
+    <div class="room-10 room">Room 30</div>
+  </div>
+</div>
+

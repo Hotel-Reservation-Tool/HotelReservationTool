@@ -1,0 +1,55 @@
+.hotel{
+  border: 3px solid white;
+  margin: 10vh auto;
+  width: 40vw;
+  height: 50vh;
+  display: flex;
+  justify-content: flex-end;
+  border-left: 0;
+}
+
+h1{
+  text-align: center;
+  color: white;
+}
+
+.room{
+  border: 2px solid white;
+  width: 9.9vw;
+  height: 9.9vh;
+  color: white;
+  font-family: 'Muli', serif;
+  text-align: center;
+  cursor: pointer;
+}
+.room:hover{
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.left {
+  margin-right: auto;
+}
+
+.right > .room {
+  border-right: 0;
+}
+
+.room-1, .room-6{
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.room-2, .room-3, .room-4, .room-7, .room-8, .room-9{
+  border-bottom: 0;
+}
+
+.floors{
+  position: absolute;
+  left: 10px;
+  display: flex;
+}
+
+.floor-button{
+  margin: 1em;
+}
+
