@@ -16,4 +16,6 @@ public class ClientService {
     public List<Client> selectAll() {
         return clientRepo.selectAllClients();
     }
+
+    public Client getClientByEmail(String email) { return clientRepo.getClientByEmail(email); }
 }
