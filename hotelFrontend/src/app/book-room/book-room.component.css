@@ -53,3 +53,42 @@ h1{
   margin: 1em;
 }
 
+.selectedRooms{
+  position: absolute;
+  left: 10px;
+  top: 250px;
+  margin: 1em;
+}
+
+.selectedRoom{
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+li{
+  font-family: 'Muli', serif;
+  font-size: 1em;
+}
+
+.submit-button-div{
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button{
+  width: 100px;
+}
+
+.formInfo{
+  margin: 1em;
+}
+
+label{
+  margin-right: 10px;
+  font-family: 'Muli', serif;
+  min-width: 75px;
+}
+
+input{
+  padding: 0.8em;
+  min-width: 210px;
+}
