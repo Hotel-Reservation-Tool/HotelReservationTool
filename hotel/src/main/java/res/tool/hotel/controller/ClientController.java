@@ -11,15 +11,20 @@ import res.tool.hotel.service.ClientService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/client")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ClientController {
 
     @Autowired
     private ClientService service;
 
-    @GetMapping("/client/all")
+    @GetMapping("/all")
     public List<Client> selectAllClients(){
         return service.selectAll();
+    }
+
+    @GetMapping("/getByEmail")
+    public Client getByEmail(String email){
+        return service.getClientByEmail(email);
     }
 }

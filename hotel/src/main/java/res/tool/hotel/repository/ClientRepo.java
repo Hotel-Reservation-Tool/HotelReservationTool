@@ -18,4 +18,9 @@ public class ClientRepo {
         String sql = "SELECT * FROM client";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Client.class));
     }
+
+    public Client getClientByEmail(String email) {
+        String sql = "SELECT * FROM client WHERE email = ?";
+        return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Client.class), email);
+    }
 }
