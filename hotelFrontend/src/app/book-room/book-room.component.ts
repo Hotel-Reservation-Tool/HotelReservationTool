@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {ReservationService} from "./reservation.service";
+import {Reservation} from "./reservation";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-book-room',
@@ -13,8 +16,11 @@ export class BookRoomComponent implements OnInit {
   selectedRooms: number[] = [];
   closeResult: string | undefined;
   myForm: FormGroup;
+  email: string = "";
+  newRes: Reservation = new Reservation();
 
-  constructor(private modalService: NgbModal, private fb: FormBuilder) { }
+  constructor(private modalService: NgbModal, private fb: FormBuilder, private reservationService: ReservationService,
+              private router : Router) { }
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -72,9 +78,12 @@ export class BookRoomComponent implements OnInit {
     }
   }
 
-  onSubmit(form: FormGroup) {
-    if (form.valid) {
-      console.log("Form Submitted!");
-    }
+  onSubmit() {
+    this.reservationService.getClientByEmail(this.email).subscribe(client => {
+      this.newRes.clientId = client.id;
+      this.reservationService.createReservation(this.newRes).subscribe();
+    })
+    this.router.navigate(['/home']);
+
   }
 }

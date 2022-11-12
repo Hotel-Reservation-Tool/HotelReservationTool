@@ -1,11 +1,8 @@
 package res.tool.hotel.controller;
 
+import org.springframework.web.bind.annotation.*;
 import res.tool.hotel.entity.Client;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import res.tool.hotel.service.ClientService;
 
 import java.util.List;
@@ -23,8 +20,8 @@ public class ClientController {
         return service.selectAll();
     }
 
-    @GetMapping("/getByEmail")
-    public Client getByEmail(String email){
+    @GetMapping("/getByEmail/{email}")
+    public Client getByEmail( @PathVariable String email){
         return service.getClientByEmail(email);
     }
 }

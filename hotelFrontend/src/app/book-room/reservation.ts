@@ -1,6 +1,6 @@
-export class reservation{
+export class Reservation{
   reservationId: string;
-  clientId: string;
-  startDate: Date;
-  endDate: Date;
+  clientId: number;
+  start_date: Date;
+  end_date: Date;
 }

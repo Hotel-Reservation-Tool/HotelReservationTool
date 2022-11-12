@@ -6,6 +6,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { BookRoomComponent } from './book-room/book-room.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

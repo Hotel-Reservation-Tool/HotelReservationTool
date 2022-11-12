@@ -71,12 +71,12 @@
     </button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <div class="formInfo">
         <label>
           Email:
         </label>
-          <input formControlName="email" placeholder="Your email">
+          <input formControlName="email" placeholder="Your email" [(ngModel)]="email">
         <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)"
              style="color: red">
           Please provide a valid email address.
@@ -86,13 +86,13 @@
         <label>
           First day:
         </label>
-          <input formControlName="startDate" type="date" placeholder="Start date">
+          <input formControlName="startDate" type="date" placeholder="Start date" [(ngModel)]="newRes.start_date">
       </div>
       <div class="formInfo">
         <label>
           Last day:
         </label>
-          <input formControlName="endDate" type="date" placeholder="End date">
+          <input formControlName="endDate" type="date" placeholder="End date" [(ngModel)]="newRes.end_date">
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>

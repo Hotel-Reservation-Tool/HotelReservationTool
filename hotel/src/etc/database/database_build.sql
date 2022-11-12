@@ -27,7 +27,6 @@ CREATE TABLE `hotel`.`reservation` (
     `clientid` VARCHAR(100) NOT NULL,
     `start_date` DATE NOT NULL,
     `end_date` DATE NOT NULL,
-    `people` INT NOT NULL,
     INDEX `clientid_idx` (`clientid` ASC) VISIBLE,
     INDEX `roomid_idx` (`roomid` ASC) VISIBLE,
     CONSTRAINT `clientid`
@@ -46,7 +45,6 @@ CREATE TABLE `hotel`.`reservation` (
 ALTER TABLE `hotel`.`reservation`
     DROP FOREIGN KEY `roomid`;
 ALTER TABLE `hotel`.`reservation`
-    DROP COLUMN `people`,
     DROP COLUMN `roomid`,
     ADD COLUMN `reservationid` VARCHAR(100) NOT NULL FIRST,
     ADD PRIMARY KEY (`reservationid`),
@@ -57,7 +55,6 @@ CREATE TABLE `hotel`.`reservation_helper` (
     `reservationid` VARCHAR(100) NOT NULL,
     `roomid` VARCHAR(100) NOT NULL,
     INDEX `reservationid_idx` (`reservationid` ASC) VISIBLE,
-    PRIMARY KEY (`reservationid`, `roomid`),
     CONSTRAINT `reservationid`
         FOREIGN KEY (`reservationid`)
             REFERENCES `hotel`.`reservation` (`reservationid`)
