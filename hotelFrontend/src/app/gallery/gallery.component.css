@@ -29,7 +29,6 @@
   bottom: .5em;
   border-radius: 100%;
   cursor: pointer;
-  display: block;
   height: .5em;
   left: 24em;
   opacity: 0;
@@ -85,16 +84,4 @@
   opacity: 1;
   visibility: visible;
   z-index: 10;
-}
-
-
-.containerdiv{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  font-family: 'Muli', serif;
-  font-size: 20px;
-  text-shadow: 4px 4px 4px #000000;
 }

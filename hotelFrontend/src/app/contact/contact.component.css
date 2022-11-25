@@ -1,6 +1,6 @@
 #hotel-img{
   filter: drop-shadow(0 0 30px black);
-  border: 3px solid black;
+  border: 1.5px solid black;
   border-radius: 1em;
 }
 
