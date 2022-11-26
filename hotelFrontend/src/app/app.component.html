@@ -14,9 +14,89 @@
           <a class="nav-link" href="#">Contact us!</a>
         </li>
       </ul>
+      <button class="btn btn-light" (click)="open(loginform)">Login</button>
+      <button class="btn btn-warning" (click)="open(signupform)">Sign up</button>
       <button class="btn btn-info"><a routerLink="/rooms">Book a room</a></button>
+
     </div>
   </div>
 </nav>
 <br>
+
+<ng-template #loginform let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Login</h4>
+    <button class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">
+      X
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="formInfo">
+        <label>
+          Email:
+        </label>
+        <input formControlName="email" placeholder="Your email" [(ngModel)]="email">
+        <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)"
+             style="color: red">
+          Please provide a valid email address.
+        </div>
+      </div>
+      <div class="formInfo">
+        <label>
+         Password:
+        </label>
+        <input formControlName="password" placeholder="Your password" [(ngModel)]="password">
+      </div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+<ng-template #signupform let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Login</h4>
+    <button class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">
+      X
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="formInfo">
+        <label>
+          Full name:
+        </label>
+        <input formControlName="name" placeholder="Your name" [(ngModel)]="name">
+      </div>
+      <div class="formInfo">
+        <label>
+          Email:
+        </label>
+        <input formControlName="email" placeholder="Your email" [(ngModel)]="email">
+        <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)"
+             style="color: red">
+          Please provide a valid email address.
+        </div>
+      </div>
+      <div class="formInfo">
+        <label>
+          Password:
+        </label>
+        <input formControlName="password" placeholder="Your password" [(ngModel)]="password">
+      </div>
+      <div class="formInfo">
+        <label>
+          Phone number:
+        </label>
+        <input formControlName="phone" placeholder="Your phone number" [(ngModel)]="phone">
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
 <router-outlet></router-outlet>

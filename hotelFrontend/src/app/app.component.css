@@ -15,5 +15,10 @@ a{
   width: 3.5em;
   margin-right: 10px;
 }
+input{
+  padding: 0.8em;
+  min-width: 210px;
+}
+
 
 
