@@ -7,6 +7,10 @@ import { GalleryComponent } from './gallery/gallery.component';
 import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { ContactComponent } from './contact/contact.component';
+import { BookRoomComponent } from './book-room/book-room.component';
+import {AppRoutingModule} from "./app-routing.module";
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,11 +18,14 @@ import { ContactComponent } from './contact/contact.component';
     MainPageComponent,
     GalleryComponent,
     ContactComponent
+    BookRoomComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
