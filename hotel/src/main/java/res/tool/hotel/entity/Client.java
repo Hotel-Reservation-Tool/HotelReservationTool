@@ -20,10 +20,17 @@ public class Client {
     private String mobile;
     @Column("email")
     private String email;
+    @Column("password")
+    private String password;
+    @Column("isLoggedIn")
+    private Boolean isLoggedIn;
 
-    public Client(String name, String mobile, String email){
+    public Client(String name, String mobile, String email,
+                  String password, Boolean isLoggedIn){
         this.name = name;
         this.mobile = mobile;
         this.email = email;
+        this.password = password;
+        this.isLoggedIn = isLoggedIn;
     }
 }

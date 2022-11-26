@@ -18,4 +18,10 @@ public class ClientService {
     }
 
     public Client getClientByEmail(String email) { return clientRepo.getClientByEmail(email); }
+
+    public List<Client> getLoggedInClients() { return clientRepo.getLoggedInClients();}
+
+    public int updateClientLoginState(Boolean state, String cId) { return clientRepo.updateClientLoginState(state, cId); }
+
+    public int createClient(Client client){ return clientRepo.createClient(client); }
 }

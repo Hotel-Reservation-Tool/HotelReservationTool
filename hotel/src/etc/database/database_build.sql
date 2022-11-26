@@ -57,7 +57,6 @@ CREATE TABLE `hotel`.`reservation_helper` (
     `reservationid` VARCHAR(100) NOT NULL,
     `roomid` VARCHAR(100) NOT NULL,
     INDEX `reservationid_idx` (`reservationid` ASC) VISIBLE,
-    PRIMARY KEY (`reservationid`, `roomid`),
     CONSTRAINT `reservationid`
         FOREIGN KEY (`reservationid`)
             REFERENCES `hotel`.`reservation` (`reservationid`)
@@ -68,3 +67,7 @@ CREATE TABLE `hotel`.`reservation_helper` (
             REFERENCES `hotel`.`room` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION);
+
+ALTER TABLE `hotel`.`client`
+    ADD COLUMN `isLoggedIn` TINYINT NOT NULL DEFAULT 0 AFTER `password`,
+    CHANGE COLUMN `password` `password` VARCHAR(45) NOT NULL ;

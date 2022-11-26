@@ -1,8 +1,10 @@
 package res.tool.hotel.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import res.tool.hotel.entity.Client;
 import res.tool.hotel.entity.Reservation;
 
 
@@ -30,5 +32,15 @@ public class ReservationRepo {
 //        }catch (Exception e) {
 //            throw new RuntimeException(e);
 //        }
+    }
+
+    public int deleteReservationById(String rId) {
+        String insertReservation = "DELETE FROM hotel.reservation WHERE reservationid = ?";
+        return jdbcTemplate.update(insertReservation, rId);
+    }
+
+    public Reservation getReservationByClientId(String cId) {
+        String insertReservation = "SELECT * FROM hotel.reservation WHERE clientid = ?";
+        return jdbcTemplate.queryForObject(insertReservation, new BeanPropertyRowMapper<>(Reservation.class), cId);
     }
 }

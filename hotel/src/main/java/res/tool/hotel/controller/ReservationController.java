@@ -18,5 +18,11 @@ public class ReservationController {
     private ReservationService service;
 
     @PostMapping("/create")
-    public void createReservation(@RequestBody Reservation reservation){ service.createReservation(reservation);};
+    public void createReservation(@RequestBody Reservation reservation){ service.createReservation(reservation);}
+
+    @GetMapping("/getByClientId")
+    public Reservation getReservationId(String cId){ return service.getReservationByClientId(cId); }
+
+    @DeleteMapping("/deleteById")
+    public void deleteReservationById(String rId){ service.deleteReservationById(rId); }
 }
