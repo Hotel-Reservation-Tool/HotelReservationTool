@@ -1,6 +1,6 @@
 #hotel-img{
   filter: drop-shadow(0 0 30px black);
-  border: 3px solid black;
+  border: 1.5px solid black;
   border-radius: 1em;
 }
 
@@ -31,3 +31,14 @@
   justify-content: space-between;
   align-items: center;
 }
+
+a:link {
+  color: cyan;
+  font-family: 'Muli', serif;
+  font-size: 20px;
+  text-shadow: 4px 4px 4px #000000;
+}
+a:link {
+  color: blue;
+}
+
