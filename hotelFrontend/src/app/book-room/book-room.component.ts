@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ReservationService} from "./reservation.service";
 import {Reservation} from "./reservation";
 import {Router} from "@angular/router";
+import {ClientService} from "./client.service";
 
 @Component({
   selector: 'app-book-room',
@@ -18,11 +19,17 @@ export class BookRoomComponent implements OnInit {
   myForm: FormGroup;
   email: string = "";
   newRes: Reservation = new Reservation();
+  isLoggedIn: boolean = true;
 
   constructor(private modalService: NgbModal, private fb: FormBuilder, private reservationService: ReservationService,
-              private router : Router) { }
+              private router : Router, private clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.clientService.getLoggedInClients().subscribe( logged => {
+      if (logged.length == 0) {
+        this.isLoggedIn = false;
+      }
+    })
     this.myForm = this.fb.group({
       name: ['', Validators.required],
       phone: ['', Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")],
@@ -79,11 +86,15 @@ export class BookRoomComponent implements OnInit {
   }
 
   onSubmit() {
-    this.reservationService.getClientByEmail(this.email).subscribe(client => {
-      this.newRes.clientId = client.id;
-      this.reservationService.createReservation(this.newRes).subscribe();
+    this.clientService.getLoggedInClients().subscribe( logged => {
+      logged.forEach( client => {
+        if(client.isLoggedIn){
+          this.newRes.clientId = client.id;
+          this.reservationService.createReservation(this.newRes).subscribe();
+          this.router.navigate(['/home']);
+          alert("Reservation successful!")
+        }
+      })
     })
-    this.router.navigate(['/home']);
-
   }
 }

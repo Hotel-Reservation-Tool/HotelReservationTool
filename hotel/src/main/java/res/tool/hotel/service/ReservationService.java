@@ -18,4 +18,12 @@ public class ReservationService {
     public int createReservation(Reservation reservation) {
         return reservationRepo.createReservation(reservation);
     }
+
+    public int deleteReservationById(String rId) {
+        return reservationRepo.deleteReservationById(rId);
+    }
+
+    public Reservation getReservationByClientId(String cId) {
+        return reservationRepo.getReservationByClientId(cId);
+    }
 }

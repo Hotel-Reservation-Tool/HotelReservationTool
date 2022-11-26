@@ -3,8 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainPageComponent } from './main-page/main-page.component';
-import { BookRoomComponent } from './book-room/book-room.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
+import { ContactComponent } from './contact/contact.component';
+import { BookRoomComponent } from './book-room/book-room.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from "@angular/common/http";
 
@@ -12,14 +15,17 @@ import { HttpClientModule} from "@angular/common/http";
   declarations: [
     AppComponent,
     MainPageComponent,
-    BookRoomComponent
+    GalleryComponent,
+    ContactComponent,
+    BookRoomComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule,
+    RouterOutlet,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

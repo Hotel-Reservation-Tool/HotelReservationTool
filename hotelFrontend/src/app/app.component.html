@@ -5,19 +5,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Gallery</a>
+          <a class="nav-link" href="/gallery">Gallery</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Prices</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact us!</a>
+          <a class="nav-link" href="/contact">Contact us!</a>
         </li>
       </ul>
-      <button class="btn btn-light" (click)="open(loginform)">Login</button>
-      <button class="btn btn-warning" (click)="open(signupform)">Sign up</button>
-      <button class="btn btn-info"><a routerLink="/rooms">Book a room</a></button>
-
+      <button class="btn btn-info"  [hidden]="isLoggedIn" (click)="open(loginform)">Login</button>
+      <button class="btn btn-info"  [hidden]="isLoggedIn" (click)="open(signupform)">Sign up</button>
+      <button class="btn btn-info" [hidden]="!isLoggedIn"><a  (click)="logout()">Logout</a></button>
     </div>
   </div>
 </nav>

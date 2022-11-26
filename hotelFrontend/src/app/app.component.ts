@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Reservation} from "./book-room/reservation";
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ReservationService} from "./book-room/reservation.service";
 import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
+import {ClientService} from "./book-room/client.service";
+import {Client} from "./book-room/client";
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'hotelFrontend';
   closeResult: string | undefined;
   myForm: FormGroup;
@@ -19,6 +23,7 @@ export class AppComponent {
   name: string = "";
   phone: string = "";
   newRes: Reservation = new Reservation();
+  public isLoggedIn: boolean;
 
   constructor(private modalService: NgbModal, private fb: FormBuilder, private reservationService: ReservationService,
               private router : Router) { }
@@ -30,6 +35,9 @@ export class AppComponent {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
     });
+    this.clientService.getLoggedInClients().subscribe( logged => {
+      this.isLoggedIn = logged.length != 0;
+  })
   }
    open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -55,6 +63,25 @@ export class AppComponent {
       this.reservationService.createReservation(this.newRes).subscribe();
     })
     this.router.navigate(['/home']);
+
+
+  login(): void{
+    this.clientService.getClientByEmail("j@gmail.com").subscribe( c => {
+      c.isLoggedIn = 1;
+      this.clientService.updateClient(c.id, c).subscribe(
+      );
+    })
+  }
+
+  logout(): void{
+    this.clientService.getClientByEmail("j@gmail.com").subscribe( c => {
+      c.isLoggedIn = 0;
+      this.clientService.updateClient(c.id, c).subscribe();
+    })
+  }
+
+  register(client : Client){
+    this.clientService.createClient(client).subscribe();
 
   }
 }
