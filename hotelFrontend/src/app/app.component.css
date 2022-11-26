@@ -15,10 +15,20 @@ a{
   width: 3.5em;
   margin-right: 10px;
 }
+
+.formInfo{
+  margin: 1em;
+}
+
+label{
+  margin-right: 20px;
+  font-family: 'Muli', serif;
+  min-width: 90px;
+}
+
 input{
   padding: 0.8em;
   min-width: 210px;
 }
-
 
 

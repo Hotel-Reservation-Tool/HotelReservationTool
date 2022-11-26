@@ -26,6 +26,7 @@ export class AppComponent {
   ngOnInit(): void {
     this.myForm = this.fb.group({
       name: ['', Validators.required],
+      password: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")],
     });
