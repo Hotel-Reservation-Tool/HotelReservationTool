@@ -20,8 +20,8 @@ public class ClientController {
         return service.selectAll();
     }
 
-    @GetMapping("/getByEmail")
-    public Client getByEmail(String email){
+    @GetMapping("/getByEmail/{email}")
+    public Client getByEmail( @PathVariable String email){
         return service.getClientByEmail(email);
     }
 
