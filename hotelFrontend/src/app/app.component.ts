@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
   password: string = "";
   name: string = "";
   phone: string = "";
-  newRes: Reservation = new Reservation();
-  public isLoggedIn: boolean;
+  newClient: Client = new Client();
+  public isLoggedIn: boolean = false;
   public loggedInUSer: Client = null;
   private badPw: boolean = false;
 
@@ -104,13 +104,19 @@ export class AppComponent implements OnInit {
   }
 
   register(){
-    let client:Client = new Client();
-    client.id = "asdasdsa";
-    client.name = this.name;
-    client.email = this.email;
-    client.password = this.password;
-    client.isLoggedIn = 0;
-    this.clientService.createClient(client).subscribe();
+    this.newClient.name = this.name;
+    this.newClient.email = this.email;
+    this.newClient.password = this.password;
+    this.newClient.mobile = this.phone;
+    this.newClient.isLoggedIn = 1;
+    this.clientService.createClient(this.newClient).subscribe( (result) => {
+        console.log(result);
+    },
+      () => alert("Registration failed! Please try again! "),
+      () => {
+      alert("Registration successful!")
+        window.location.reload();
+      });
 
   }
 }

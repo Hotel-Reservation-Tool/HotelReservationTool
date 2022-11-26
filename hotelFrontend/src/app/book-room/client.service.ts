@@ -16,8 +16,8 @@ export class ClientService {
   private getLoggedInURL = "http://localhost:9999/client/getLoggedInClients";
   private editClientURL = "http://localhost:9999/client/editClient";
 
-  createClient(c: Client): Observable<Client>{
-    return this.httpClient.post<Client>(this.createClientURL, c);
+  createClient(c: Client): Observable<Object>{
+    return this.httpClient.post(this.createClientURL, c);
   }
 
   getClientByEmail(email: string): Observable<Client>{
