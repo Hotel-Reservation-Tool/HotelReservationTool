@@ -14,7 +14,9 @@
           <a class="nav-link" href="#">Contact us!</a>
         </li>
       </ul>
-      <button class="btn btn-info"><a routerLink="/rooms">Book a room</a></button>
+      <button class="btn btn-info" [hidden]="isLoggedIn"><a  (click)="login()">Login</a></button>
+      <button class="btn btn-info" [hidden]="!isLoggedIn"><a  (click)="logout()">Logout</a></button>
+      <button class="btn btn-info" [hidden]="isLoggedIn"><a  href="#">Register</a></button>
     </div>
   </div>
 </nav>

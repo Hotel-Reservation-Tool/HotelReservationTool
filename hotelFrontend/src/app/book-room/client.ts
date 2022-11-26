@@ -3,4 +3,6 @@ export class Client{
   name: string;
   mobile: number;
   email: string;
+  isLoggedIn: number;
+  password: string;
 }

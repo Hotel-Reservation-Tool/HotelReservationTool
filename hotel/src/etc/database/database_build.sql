@@ -66,7 +66,9 @@ CREATE TABLE `hotel`.`reservation_helper` (
                                                   FOREIGN KEY (`roomid`)
                                                       REFERENCES `hotel`.`room` (`id`)
                                                       ON DELETE NO ACTION
-                                                      ON UPDATE NO ACTION);
+                                                      ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 ALTER TABLE `hotel`.`client`
     ADD COLUMN `isLoggedIn` TINYINT NOT NULL DEFAULT 0 AFTER `password`,
