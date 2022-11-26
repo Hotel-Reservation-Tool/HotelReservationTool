@@ -28,7 +28,7 @@ public class ClientController {
     @GetMapping("/getLoggedInClients")
     public List<Client> getLoggedInClients(){
         return service.getLoggedInClients();
-    };
+    }
 
     @PutMapping("/editClient/{id}")
     public void updateClient(@PathVariable String id, @RequestBody Client client){
