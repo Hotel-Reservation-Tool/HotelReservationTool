@@ -1,6 +1,6 @@
 export class Reservation{
   reservationId: string;
-  clientId: number;
+  clientId: string;
   start_date: Date;
   end_date: Date;
 }

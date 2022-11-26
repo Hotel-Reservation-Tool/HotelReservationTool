@@ -30,10 +30,11 @@ public class ClientController {
         return service.getLoggedInClients();
     };
 
-    @PutMapping("/updateClientLoginState")
-    public int updateClientLoginState(Boolean state, String cId){
-        return service.updateClientLoginState(state, cId);
+    @PutMapping("/editClient/{id}")
+    public void updateClient(@PathVariable String id, @RequestBody Client client){
+        service.updateClient(client, id);
     }
+
 
     @PostMapping("/createClient")
     public void createClient(@RequestBody Client client){
