@@ -1,0 +1,12 @@
+<h2 *ngIf="!isLoggedIn">Please log in to see your reservations!</h2>
+<div *ngIf="isLoggedIn"><h2>Here are your reservations:</h2>
+  <br>
+  <br>
+  <ul *ngFor="let r of reservations;  index as i">
+      <br>
+      <h2>Reservation  {{i+1}}:</h2>
+      <li>First day: {{r.start_date | date:'medium'}}</li>
+      <li>Last day: {{r.end_date | date:'medium'}}</li>
+      <br>
+  </ul>
+</div>

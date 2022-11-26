@@ -1,0 +1,10 @@
+h2{
+  text-align: center;
+  color: white;
+}
+
+div, ul, li{
+  text-align: center;
+  color: white;
+  list-style-type: none;
+}
