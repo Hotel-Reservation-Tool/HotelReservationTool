@@ -10,11 +10,16 @@ import {Client} from "./client";
 export class ReservationService {
 
   private createReservationURL = "http://localhost:9999/reservation/create";
+  private getReservationOfGuestURL = "http://localhost:9999/reservation/getByClientId";
 
   constructor(private httpClient: HttpClient) { }
 
   createReservation(res: Reservation): Observable<Object>{
     return this.httpClient.post(this.createReservationURL, res);
+  }
+
+  getGuestReservations(clientId: string): Observable<Reservation[]>{
+    return this.httpClient.get<Reservation[]>(`${this.getReservationOfGuestURL}/${clientId}`);
   }
 
 }

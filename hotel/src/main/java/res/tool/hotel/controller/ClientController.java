@@ -35,7 +35,6 @@ public class ClientController {
         service.updateClient(client, id);
     }
 
-
     @PostMapping("/createClient")
     public void createClient(@RequestBody Client client){
         service.createClient(client);

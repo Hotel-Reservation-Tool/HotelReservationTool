@@ -10,6 +10,7 @@ import { ContactComponent } from './contact/contact.component';
 import { BookRoomComponent } from './book-room/book-room.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from "@angular/common/http";
+import { MyReservationsComponent } from './my-reservations/my-reservations.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule} from "@angular/common/http";
     GalleryComponent,
     ContactComponent,
     BookRoomComponent,
+    MyReservationsComponent,
   ],
   imports: [
     BrowserModule,

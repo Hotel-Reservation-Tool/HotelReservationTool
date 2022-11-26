@@ -26,9 +26,10 @@ label{
   min-width: 90px;
 }
 
-input{
+input {
   padding: 0.8em;
   min-width: 210px;
+}
 
 button{
   margin-left: 30px;

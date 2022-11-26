@@ -4,6 +4,7 @@ import {GalleryComponent} from "./gallery/gallery.component";
 import {MainPageComponent} from "./main-page/main-page.component";
 import {ContactComponent} from "./contact/contact.component";
 import {BookRoomComponent} from "./book-room/book-room.component";
+import {MyReservationsComponent} from "./my-reservations/my-reservations.component";
 
 const routes: Routes = [
   { path: 'gallery', component: GalleryComponent },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'home', component: MainPageComponent },
   { path: 'rooms', component: BookRoomComponent },
   { path: 'rooms', component: BookRoomComponent },
+  { path: 'reservations', component: MyReservationsComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
 ]
 

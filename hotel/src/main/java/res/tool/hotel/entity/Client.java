@@ -12,6 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Table("client")
 public class Client {
+
     @Id
     private @Column("id") String id = UUID.randomUUID().toString();
     @Column("name")

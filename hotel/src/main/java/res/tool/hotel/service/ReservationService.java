@@ -23,7 +23,7 @@ public class ReservationService {
         return reservationRepo.deleteReservationById(rId);
     }
 
-    public Reservation getReservationByClientId(String cId) {
+    public List<Reservation> getReservationByClientId(String cId) {
         return reservationRepo.getReservationByClientId(cId);
     }
 }
