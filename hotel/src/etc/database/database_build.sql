@@ -9,6 +9,9 @@ CREATE TABLE `hotel`.`client` (
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8;
 
+ALTER TABLE `hotel`.`client`
+    ADD COLUMN `password` VARCHAR(45) NULL AFTER `email`;
+
 CREATE TABLE `hotel`.`room` (
     `id` VARCHAR(100) NOT NULL,
     `size` INT NOT NULL,
@@ -39,3 +42,32 @@ CREATE TABLE `hotel`.`reservation` (
             ON UPDATE NO ACTION)
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8;
+
+ALTER TABLE `hotel`.`reservation`
+    DROP FOREIGN KEY `roomid`;
+ALTER TABLE `hotel`.`reservation`
+    DROP COLUMN `people`,
+    DROP COLUMN `roomid`,
+    ADD COLUMN `reservationid` VARCHAR(100) NOT NULL FIRST,
+    ADD PRIMARY KEY (`reservationid`),
+    DROP INDEX `roomid_idx` ;
+;
+
+CREATE TABLE `hotel`.`reservation_helper` (
+    `reservationid` VARCHAR(100) NOT NULL,
+    `roomid` VARCHAR(100) NOT NULL,
+    INDEX `reservationid_idx` (`reservationid` ASC) VISIBLE,
+    CONSTRAINT `reservationid`
+        FOREIGN KEY (`reservationid`)
+            REFERENCES `hotel`.`reservation` (`reservationid`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+        CONSTRAINT `roomid`
+        FOREIGN KEY (`roomid`)
+            REFERENCES `hotel`.`room` (`id`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION);
+
+ALTER TABLE `hotel`.`client`
+    ADD COLUMN `isLoggedIn` TINYINT NOT NULL DEFAULT 0 AFTER `password`,
+    CHANGE COLUMN `password` `password` VARCHAR(45) NOT NULL ;
