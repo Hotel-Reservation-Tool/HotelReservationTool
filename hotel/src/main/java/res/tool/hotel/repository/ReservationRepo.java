@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import res.tool.hotel.entity.Client;
 import res.tool.hotel.entity.Reservation;
 
+import java.util.List;
+
 
 @Repository
 public class ReservationRepo {
@@ -39,8 +41,8 @@ public class ReservationRepo {
         return jdbcTemplate.update(insertReservation, rId);
     }
 
-    public Reservation getReservationByClientId(String cId) {
+    public List<Reservation> getReservationByClientId(String cId) {
         String insertReservation = "SELECT * FROM hotel.reservation WHERE clientid = ?";
-        return jdbcTemplate.queryForObject(insertReservation, new BeanPropertyRowMapper<>(Reservation.class), cId);
+        return jdbcTemplate.query(insertReservation, new BeanPropertyRowMapper<>(Reservation.class), cId);
     }
 }

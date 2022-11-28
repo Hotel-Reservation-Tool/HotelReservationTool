@@ -8,17 +8,99 @@
           <a class="nav-link" href="/rooms">Reservation</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/reservations">My reservations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Prices</a>
           <a class="nav-link" href="/gallery">Gallery</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contact">Contact us!</a>
         </li>
       </ul>
-      <button class="btn btn-info" [hidden]="isLoggedIn"><a  (click)="login()">Login</a></button>
+      <button class="btn btn-info"  [hidden]="isLoggedIn" (click)="open(loginform)">Login</button>
+      <button class="btn btn-info"  [hidden]="isLoggedIn" (click)="open(signupform)">Sign up</button>
       <button class="btn btn-info" [hidden]="!isLoggedIn"><a  (click)="logout()">Logout</a></button>
-      <button class="btn btn-info" [hidden]="isLoggedIn"><a  href="#">Sign up</a></button>
     </div>
   </div>
 </nav>
 <br>
+<ng-template #loginform let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Login</h4>
+    <button class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">
+      X
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="myForm">
+      <div class="formInfo">
+        <label>
+          Email:
+        </label>
+        <input formControlName="email" placeholder="Your email" [(ngModel)]="email">
+        <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)"
+             style="color: red">
+          Please provide a valid email address.
+        </div>
+      </div>
+      <div class="formInfo">
+        <label>
+         Password:
+        </label>
+        <input formControlName="password" type="password" placeholder="Your password" [(ngModel)]="password">
+      </div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark" (click)="login()"
+           [disabled]=" email.length == 0 || password.length == 0">Ok</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+<ng-template #signupform let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Sign up</h4>
+    <button class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">
+      X
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="myForm">
+      <div class="formInfo">
+        <label>
+          Full name:
+        </label>
+        <input formControlName="name" placeholder="Your name" [(ngModel)]="name">
+      </div>
+      <div class="formInfo">
+        <label>
+          Email:
+        </label>
+        <input formControlName="email" placeholder="Your email" [(ngModel)]="email">
+        <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)"
+             style="color: red">
+          Please provide a valid email address.
+        </div>
+      </div>
+      <div class="formInfo">
+        <label>
+          Password:
+        </label>
+        <input formControlName="password" type="password"  placeholder="Your password" [(ngModel)]="password">
+      </div>
+      <div class="formInfo">
+        <label>
+          Phone:
+        </label>
+        <input formControlName="phone" placeholder="Your phone number" [(ngModel)]="phone">
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark" (click)="register()"
+        [disabled]="name.length == 0 || email.length == 0 || password.length == 0 || phone.length == 0">Ok</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
 <router-outlet></router-outlet>
