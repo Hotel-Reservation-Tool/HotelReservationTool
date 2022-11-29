@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ReservationService} from "./book-room/reservation.service";
-import {Router} from "@angular/router";
-import {ClientService} from "./book-room/client.service";
-import {Client} from "./book-room/client";
+ import { Component, OnInit } from '@angular/core';
+import {  ReservationService } from "./book-room/reservation.service";
+import { Router } from "@angular/router";
+import { ClientService } from "./book-room/client.service";
+import { Client } from "./book-room/client";
 
 @Component({
   selector: 'app-root',

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ReservationService} from "./reservation.service";
-import {Reservation} from "./reservation";
-import {Router} from "@angular/router";
-import {ClientService} from "./client.service";
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { ReservationService } from "./reservation.service";
+import { Reservation } from "./Models/reservation";
+import { Router } from "@angular/router";
+import { ClientService } from "./client.service";
 
 @Component({
   selector: 'app-book-room',
