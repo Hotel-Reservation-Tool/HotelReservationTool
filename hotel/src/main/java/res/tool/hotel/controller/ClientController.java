@@ -3,7 +3,7 @@ package res.tool.hotel.controller;
 import org.springframework.web.bind.annotation.*;
 import res.tool.hotel.entity.Client;
 import org.springframework.beans.factory.annotation.Autowired;
-import res.tool.hotel.service.ClientService;
+import res.tool.hotel.service.IClientService;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class ClientController {
 
     @Autowired
-    private ClientService service;
+    private IClientService service;
 
     @GetMapping("/all")
     public List<Client> selectAllClients(){

@@ -4,12 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import res.tool.hotel.entity.Client;
 import res.tool.hotel.entity.Reservation;
 
 
 @Repository
-public class ReservationRepo {
+public class ReservationRepo implements IReservationRepo {
 
     @Autowired
     JdbcTemplate jdbcTemplate;

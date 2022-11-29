@@ -2,12 +2,8 @@ package res.tool.hotel.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import res.tool.hotel.entity.Client;
 import res.tool.hotel.entity.Reservation;
-import res.tool.hotel.entity.Room;
-import res.tool.hotel.service.ReservationService;
-
-import java.util.List;
+import res.tool.hotel.service.IReservationService;
 
 @RestController
 @RequestMapping("/reservation")
@@ -15,7 +11,7 @@ import java.util.List;
 public class ReservationController {
 
     @Autowired
-    private ReservationService service;
+    private IReservationService service;
 
     @PostMapping("/create")
     public void createReservation(@RequestBody Reservation reservation){ service.createReservation(reservation);}
